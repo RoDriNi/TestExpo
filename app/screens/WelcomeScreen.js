@@ -1,10 +1,13 @@
 import React from 'react';
+import { SafeAreaView } from 'react-native';
+
+import Login from '../screens/Login';
 
 function WelcomeScreen(props) {
     return (
-        <div>
-            
-        </div>
+        <SafeAreaView>
+            <Login />
+        </SafeAreaView>
     );
 }
 

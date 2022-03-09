@@ -1,22 +1,44 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, Button } from 'react-native';
+import React, { Component, useState } from "react";
 
-export default function App() {
-  console.log("here parei!");
-  let x=1;
-  //x.toString();
+//import WelcomeScreen from './app/screens/WelcomeScreen';
 
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <Text numberOfLines={1} onPress={handlePressText}>La1 potaria starts here!{x}</Text>
-      <StatusBar style="auto" />
-    </SafeAreaView>
-  );
+class App extends Component {
+
+  state = {x : 0};
+  
+  handlePressText = () => {
+    console.log("press");
+    this.setState({
+      x : this.state.x+1
+    });
+  }
+
+  handlePressButton = () =>{
+    this.setState({
+      x : 0
+    });
+  }
+
+  render() {
+
+
+    return (
+      <SafeAreaView style={styles.container}>
+        <Text>La potaria starts here!</Text><br/>
+        <Text numberOfLines={1} onPress={this.handlePressText}>Clique aqui para contar! {this.state.x}</Text><br/>
+        <StatusBar style="auto" />
+        {/* <WelcomeScreen />  */}
+        <Button title={"Zerar"} color={"#cac"} onPress={this.handlePressButton} />
+      </SafeAreaView>
+      
+    );
+  }
+
 }
-const handlePressText = () => {
-  console.log("press");
-}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -25,3 +47,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
