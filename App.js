@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, SafeAreaView, Button } from 'react-native';
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import Cadastro      from './app/screens/Cadastro';
@@ -29,7 +29,7 @@ class App extends Component {
 
   listClientes = (cliente,i) => {
     return(
-      <Cadastro cadastro={"Cadastro "+(i+1)} ClienteNome={cliente.nome} ClienteIdade={cliente.idade} />
+      <Cadastro key={i} cadastro={"Cadastro "+(i+1)} ClienteNome={cliente.nome} ClienteIdade={cliente.idade} />
     );
   }
 
@@ -46,7 +46,7 @@ class App extends Component {
 
         {/* Lista de cadastro de Clientes */}
         {this.state.clientes.map(this.listClientes)}
-
+        <div></div>
       </SafeAreaView>
       
     );

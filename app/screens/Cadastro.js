@@ -13,3 +13,4 @@ export class Cadastro extends Component {
     );
   }
 }
+export default Cadastro;
